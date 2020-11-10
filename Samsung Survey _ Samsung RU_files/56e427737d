@@ -1,0 +1,9 @@
+
+      (function () {
+        try {
+          var u=document.URL,
+          k=u.match(/samsung_beusably_viewer=([^&#]*)/),
+          a="//samsungrum.beusable.net/script/checker/b170105e175055u968/56e427737d?url=",
+          b="//samsung.beusably.net/script/";
+          __beusablerumclient__.load(k&&k[1]?b+k[1]:a+encodeURIComponent(u));}catch(e){__beusablerumclient__.load(k&&k[1]?b+k[1]:a);}})()
+    

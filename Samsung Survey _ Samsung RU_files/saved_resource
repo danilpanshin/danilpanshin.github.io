@@ -1,0 +1,55 @@
+try{var _i1=_i1||{};_i1.vars=_i1.vars||{};_i1.vars.tagUrl=_i1.vars.tagUrl||"https://emea-samsung.netmng.com/";var _i1=_i1||{};_i1.core=_i1.core||{};_i1.core.post=function(url,data,successCallback,errorCallback){if(typeof data!=='object'){throw'Data should be an object'}var successCallback=successCallback||function(){};var errorCallback=errorCallback||function(){};var xmlhttp=new XMLHttpRequest();xmlhttp.withCredentials=true;xmlhttp.onreadystatechange=function(){if(xmlhttp.readyState==4){if(xmlhttp.status==200){successCallback(xmlhttp.responseText,url)}else{errorCallback(xmlhttp.statusText)}}};var sendRequest=[];for(var d in data){sendRequest.push(encodeURIComponent(d)+'='+encodeURIComponent(data[d]))}data=sendRequest.join('&');try{xmlhttp.open("POST",url,true);xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");xmlhttp.send(data)}catch(e){errorCallback(e)}};var _i1=_i1||{};_i1.core=_i1.core||{};_i1.core.errorCounter=_i1.core.errorCounter||0;_i1.core.errorHandler=function(error){if(_i1.core.errorCounter<30){if(_i1.vars.tagUrl.indexOf('?')!==-1){var url=_i1.vars.tagUrl+'&function=jsError'}else{var url=_i1.vars.tagUrl+'?function=jsError'}_i1.core.errorCounter++;_i1.core.post(url,{'message':error.message,'stack':error.stack,'url':document.location.href})}console.error(error)};_i1.core.tryCatchWrapper=function(f,args){var args=args||null;return function(){try{if(typeof f==='function'){f.apply(this,args!==null?args:arguments)}else{eval(f)}}catch(e){_i1.core.errorHandler(e)}}};var _i1=_i1||{};_i1.core=_i1.core||{};_i1.core.setTimeout=function(func,delay){let args=arguments;delete args[0];delete args[1];let values=Object.keys(args).map(function(e){return args[e]});let callee=_i1.core.tryCatchWrapper(func,values);return window.setTimeout(callee,delay)};_i1.core.setInterval=function(func,delay){let args=arguments;delete args[0];delete args[1];let values=Object.keys(args).map(function(e){return args[e]});let callee=_i1.core.tryCatchWrapper(func,values);return window.setInterval(callee,delay)};window._i1=window._i1||{};_i1.vars=_i1.vars|| {};_i1.vars.WP_ProfileID="4moqoud6tnlp1"}catch(e){_i1.core.errorHandler(e)}
+(function ioneTagManagerActivations() {
+     try{ 
+(function() {
+    var e = document.createElement('img');
+    e.height = '1px';
+    e.width = '1px';
+    e.style = 'border-style:none;display:none;';
+    e.src = 'https://samsungcis.demdex.net/event?d_sid=18451234 ';
+    document.body.appendChild(e);
+})();
+  
+} catch (error) {
+ if (console && console.log) {
+ console.log(error);
+}}
+ ;
+ try{ 
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1512216638937947');
+fbq('trackSingleCustom', '1512216638937947', 'IO_AUD', {AudienceId: '3187'});
+  
+} catch (error) {
+ if (console && console.log) {
+ console.log(error);
+}}
+ ;
+ try{ 
+(function(tagId, conversionId) {
+  var dataLayer = window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', tagId, {'send_page_view': false});
+  gtag('event', 'conversion', {
+    'send_to': conversionId,
+    'aw_remarketing_only': true
+  });
+  var script = document.createElement('script');
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=' + tagId;
+  document.head.appendChild(script)
+})('932-461-4123', 'AW-662734626/xgCMCKXnjskBEKKOgrwC');
+  
+} catch (error) {
+ if (console && console.log) {
+ console.log(error);
+}}
+ 
+}());

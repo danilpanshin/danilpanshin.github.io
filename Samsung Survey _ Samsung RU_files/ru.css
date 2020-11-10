@@ -1,0 +1,117 @@
+/* ru */
+/* components */
+/* home - header */
+.sc-loader {background-image: url(../imgs/logo-start-bg_ru.png);}
+
+@media screen and (width: 640px) { .hp-header__title { font-size: 78px; font-size: 12.22222vw; }
+  .hp-header__desc { font-size: 25px; font-size: 3.88889vw; } }
+
+/* home - brand ecosystem high */
+@media screen and (width: 640px) { .hp-brand-ecocsystem-high__title { font-size: 78px; font-size: 12.22222vw; }
+  .hp-brand-ecocsystem-high__desc { font-size: 25px; font-size: 3.88889vw; } }
+
+/* home - onetile cluster*/
+@media screen and (max-width: 768px) { .hp-onetile-cluster__desc { line-height: 1.3; } }
+
+/* news - header */
+.sc-news-header .s-title { font-size: 54px; font-size: 3.75vw; }
+
+@media (min-width: 1440px) { .sc-news-header .s-title  { font-size: 54px;}}
+
+.sc-news-header .s-text-wrap { padding-top: 69px; padding-top: 4.79167vw; }
+
+@media (min-width: 1440px) {.sc-news-header .s-text-wrap { padding-top: 69px; }}
+
+.sc-news-header .s-date { margin-top: 17px; margin-top: 1.18056vw; }
+
+@media (min-width: 1440px) {.sc-news-header .s-date {margin-top: 17px; } }
+
+@media screen and (max-width: 768px) {.sc-news-header .s-title {font-size: 59.73333px; font-size: 7.77778vw; }}
+
+@media screen and (max-width: 768px) and (max-width: 360px) { .sc-news-header .s-title { font-size: 28px; font-size: 7.77778vw;}}
+
+@media screen and (max-width: 768px) {.sc-news-header .s-text-wrap {padding-top: 108.8px; padding-top: 14.16667vw; } }
+
+@media screen and (max-width: 768px) and (max-width: 360px) {.sc-news-header .s-text-wrap {padding-top: 51px; padding-top: 14.16667vw;} }
+
+@media screen and (max-width: 768px) {.sc-news-header .s-date { margin-top: 34.13333px; margin-top: 4.44444vw; } }
+
+@media screen and (max-width: 768px) and (max-width: 360px) {.sc-news-header .s-date {margin-top: 16px; margin-top: 4.44444vw; } }
+
+/* offer - header */
+.sc-offer-header .s-title { font-size: 54px; font-size: 3.75vw; }
+
+@media (min-width: 1440px) { .sc-offer-header .s-title  { font-size: 54px;}}
+
+.sc-offer-header .s-align-left .s-title {margin-bottom: 15px; margin-bottom: 1.04167vw;}
+
+@media (min-width: 1440px) {.sc-offer-header .s-align-left .s-title {margin-bottom: 15px; } }
+
+.sc-offer-header .s-align-right .s-title {margin-bottom: 15px; margin-bottom: 1.04167vw; }
+
+@media (min-width: 1440px) {.sc-offer-header .s-align-right .s-title {margin-bottom: 15px; } }
+
+.sc-offer-header .s-align-center .s-title {margin-bottom: 15px; margin-bottom: 1.04167vw; }
+
+@media (min-width: 1440px) {.sc-offer-header .s-align-center .s-title {margin-bottom: 15px; } }
+
+.sc-offer-header .s-text-wrap { padding-top: 69px; padding-top: 4.79167vw; }
+
+@media (min-width: 1440px) {.sc-offer-header .s-text-wrap { padding-top: 69px; }}
+
+@media screen and (max-width: 768px) {.sc-offer-header .s-title {font-size: 59.73333px; font-size: 7.77778vw; }}
+
+@media screen and (max-width: 768px) and (max-width: 360px) { .sc-offer-header .s-title { font-size: 28px; font-size: 7.77778vw;}}
+
+@media screen and (max-width: 768px) {.sc-offer-header .s-align-left .s-title, .sc-offer-header .s-align-right .s-title, .sc-offer-header .s-align-center .s-title { margin-bottom: 27.73333px; margin-bottom: 3.61111vw;} }
+
+@media screen and (max-width: 768px) and (max-width: 360px) {.sc-offer-header .s-align-left .s-title, .sc-offer-header .s-align-right .s-title, .sc-offer-header .s-align-center .s-title {margin-bottom: 13px; margin-bottom: 3.61111vw;} }
+
+@media screen and (max-width: 768px) {.sc-offer-header .s-text-wrap {padding-top: 108.8px; padding-top: 14.16667vw; } }
+
+@media screen and (max-width: 768px) and (max-width: 360px) {.sc-offer-header .s-text-wrap {padding-top: 51px; padding-top: 14.16667vw;} }
+
+/* offer - view - header */
+.sc-offer-view-header .s-title { font-size: 54px; font-size: 3.75vw; }
+
+@media (min-width: 1440px) { .sc-offer-view-header .s-title  { font-size: 54px;}}
+
+.sc-offer-view-header .s-text-wrap { padding-top: 69px; padding-top: 4.79167vw;}
+
+@media (min-width: 1440px) {.sc-offer-view-header .s-text-wrap { padding-top: 69px; }}
+
+.sc-offer-view-header .s-desc {margin-top: 15px; margin-top: 1.04167vw; }
+
+@media (min-width: 1440px) {.sc-offer-view-header .s-desc {margin-top: 15px; } }
+
+@media screen and (max-width: 768px) {.sc-offer-view-header .s-title {font-size: 59.73333px; font-size: 7.77778vw; }}
+
+@media screen and (max-width: 768px) and (max-width: 360px) { .sc-offer-view-header .s-title { font-size: 28px; font-size: 7.77778vw;}}
+
+@media screen and (max-width: 768px) {.sc-offer-view-header .s-text-wrap {padding-top: 108.8px; padding-top: 14.16667vw; } }
+
+@media screen and (max-width: 768px) and (max-width: 360px) {.sc-offer-view-header .s-text-wrap {padding-top: 51px; padding-top: 14.16667vw;} }
+
+@media screen and (max-width: 768px) {.sc-offer-view-header .s-desc {margin-top: 32px; margin-top: 4.16667vw;} }
+
+@media screen and (max-width: 768px) and (max-width: 360px) {.sc-offer-view-header .s-desc {margin-top: 15px; margin-top: 4.16667vw;} }
+
+/* shop - feature benefit bundle*/
+.feature-benefit-bundle__title { padding: 75px 260px 72px; padding: 5.20833vw 18.05556vw 5vw; font-size: 54px; font-size: 3.75vw; }
+
+@media (min-width: 1440px) {.feature-benefit-bundle__title {padding: 75px 260px 72px; } }
+
+@media (min-width: 1440px) {.feature-benefit-bundle__title {font-size: 54px; } }
+
+.feature-benefit-bundle__list .feature-benefit-bundle__item .feature-benefit-bundle__text-wrap .feature-benefit-bundle__sub-title { line-height: 1.4; }
+
+.feature-benefit-bundle__list .feature-benefit-bundle__disclaimer p { line-height: 1.5; }
+
+@media screen and (max-width: 768px) { .feature-benefit-bundle__title {padding: 0 16px;  padding-top: 46.93333px; padding-top: 6.11111vw; padding-bottom: 34.13333px; padding-bottom: 4.44444vw; font-size: 59.73333px; font-size: 7.77778vw; } }
+
+@media screen and (max-width: 768px) and (max-width: 360px) {.feature-benefit-bundle__title { padding-top: 22px; padding-top: 6.11111vw; padding-bottom: 16px; padding-bottom: 4.44444vw; font-size: 28px; font-size: 7.77778vw;} }
+
+@media screen and (max-width: 768px) { .feature-benefit-bundle__list .feature-benefit-bundle__item .feature-benefit-bundle__text-wrap .feature-benefit-bundle__sub-title { line-height: 1.3; } .feature-benefit-bundle__list .feature-benefit-bundle__disclaimer p { line-height: 1.56; } }
+
+/* bazaarvoice review create popup - confirm checkbox css add */
+.bv-checkbox-container input[type="checkbox"]{-webkit-appearance: checkbox !important;}
