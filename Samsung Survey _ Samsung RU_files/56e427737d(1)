@@ -1,5 +1,0 @@
-
-    if(!window['__samsungrumclient__']) window.__samsungrumclient__ = {};
-    __samsungrumclient__.success = false;
-    __samsungrumclient__.message = 'not found matched apply';
-  
