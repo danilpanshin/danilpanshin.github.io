@@ -734,6 +734,11 @@ window.addEventListener('DOMContentLoaded', function () {
     }
 
     if (surveyEntity.IsSelectHorizontalType) {
+
+      if (window.NodeList && !NodeList.prototype.forEach) {
+        NodeList.prototype.forEach = Array.prototype.forEach;
+      }
+
       var inputs = wrapperElement.cloneNode(true);
       var labels = wrapperElement.cloneNode(true);
 
@@ -770,7 +775,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
       wrapperElement.insertAdjacentElement('afterbegin', start);
       wrapperElement.insertAdjacentElement('beforeend', finish);
-
+      
       var newDiv = document.createElement("div");
       newDiv.setAttribute('class', 'sh-answers');
       $(wrapperElement).children().wrapAll(newDiv);
