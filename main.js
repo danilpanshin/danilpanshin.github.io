@@ -739,17 +739,28 @@ window.addEventListener('DOMContentLoaded', function () {
         NodeList.prototype.forEach = Array.prototype.forEach;
       }
 
+      var comment = wrapperElement.querySelector("div");
+      var name = wrapperElement.querySelector("input").getAttribute("name");
+      comment.querySelector("textarea").setAttribute('name', name);
+      comment.querySelector("textarea").setAttribute('id', name);
+
+      wrapperElement.childNodes.forEach(function(item){
+        if (item.tagName === 'DIV') {
+          wrapperElement.removeChild(item);
+        }
+      });
+
       var inputs = wrapperElement.cloneNode(true);
       var labels = wrapperElement.cloneNode(true);
 
       inputs.childNodes.forEach(function(item){
-        if (item.tagName === 'LABEL') {
+        if (item.tagName !== 'INPUT') {
           inputs.removeChild(item);
         }
       });
 
       labels.childNodes.forEach(function(item){
-        if (item.tagName === 'INPUT') {
+        if (item.tagName !== 'LABEL') {
           labels.removeChild(item);
         }
       });
@@ -762,11 +773,12 @@ window.addEventListener('DOMContentLoaded', function () {
         }
       });
 
-      wrapperElement.childNodes.forEach(function(item){
-        if (item.tagName === 'LABEL') {
+     wrapperElement.childNodes.forEach(function(item){
+        if (item.tagName !== 'INPUT') {
           wrapperElement.removeChild(item);
         }
-      });
+     });
+
 
       var start = document.createElement("span");
       start.innerHTML = labels.firstChild.textContent;
@@ -775,10 +787,21 @@ window.addEventListener('DOMContentLoaded', function () {
 
       wrapperElement.insertAdjacentElement('afterbegin', start);
       wrapperElement.insertAdjacentElement('beforeend', finish);
-      
+
       var newDiv = document.createElement("div");
       newDiv.setAttribute('class', 'sh-answers');
       $(wrapperElement).children().wrapAll(newDiv);
+      if (comment !== null) {
+        wrapperElement.insertAdjacentElement('beforeend', comment);
+      }
+
+      surveyEntity.Answers.map(function (item) {
+
+        if (item.CommentElement) {
+          item.CommentElement = comment.querySelector("textarea");
+        }
+
+      });
 
       return wrapperElement
 
