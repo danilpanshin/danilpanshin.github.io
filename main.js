@@ -695,6 +695,15 @@ window.addEventListener('DOMContentLoaded', function () {
     return wrapperElement;
   }
 
+  function onSelectHorizontalComment(evt) {
+    document.querySelectorAll('.visible .sh-answers .answer-comment-wrapper').forEach(function (item) {
+      item.style.display = 'none';
+    });
+    if (document.querySelector('#' + this.id + '-comment') !== null) {
+      document.querySelector('#' + this.id + '-comment').parentNode.style.display = "block";
+    }
+  }
+
   function createSomeAnswersElements(surveyEntity, config) {
     var groupWrapperElement = createAnswerGroupWrapperElement();
     var groupElement;
@@ -739,68 +748,44 @@ window.addEventListener('DOMContentLoaded', function () {
         NodeList.prototype.forEach = Array.prototype.forEach;
       }
 
-      var comment = wrapperElement.querySelector("div");
-      var name = wrapperElement.querySelector("input").getAttribute("name");
-      comment.querySelector("textarea").setAttribute('name', name);
-      comment.querySelector("textarea").setAttribute('id', name);
-
       wrapperElement.childNodes.forEach(function(item){
         if (item.tagName === 'DIV') {
-          wrapperElement.removeChild(item);
+          wrapperElement.insertAdjacentElement('beforeend', item);
+          item.style.display = "none";
+
         }
       });
 
-      var inputs = wrapperElement.cloneNode(true);
-      var labels = wrapperElement.cloneNode(true);
-
-      inputs.childNodes.forEach(function(item){
-        if (item.tagName !== 'INPUT') {
-          inputs.removeChild(item);
-        }
-      });
-
-      labels.childNodes.forEach(function(item){
-        if (item.tagName !== 'LABEL') {
-          labels.removeChild(item);
-        }
-      });
+      var inputs = wrapperElement.querySelectorAll("input");
+      var labels = wrapperElement.querySelectorAll("label");
 
       wrapperElement.childNodes.forEach(function(item){
-        if (item.tagName === 'INPUT' && item.id !== inputs.firstChild.id && item.id !== inputs.lastChild.id) {
-          var inputId = item.id;
-          var label = wrapperElement.querySelector("label[for='" + inputId + "']");
+        if (item.tagName === 'INPUT' && item.id !== inputs[0].id && item.id !== inputs[inputs.length - 1].id) {
+          var label = wrapperElement.querySelector("label[for='" + item.id + "']");
           item.setAttribute('title', label.textContent);
         }
       });
 
-     wrapperElement.childNodes.forEach(function(item){
-        if (item.tagName !== 'INPUT') {
+      wrapperElement.childNodes.forEach(function(item){
+        if (item.tagName === 'LABEL') {
           wrapperElement.removeChild(item);
         }
-     });
+      });
 
 
       var start = document.createElement("span");
-      start.innerHTML = labels.firstChild.textContent;
+      start.innerHTML = labels[0].textContent;
       var finish = document.createElement("span");
-      finish.innerHTML = labels.lastChild.textContent;
+      finish.innerHTML = labels[labels.length - 1].textContent;
 
       wrapperElement.insertAdjacentElement('afterbegin', start);
-      wrapperElement.insertAdjacentElement('beforeend', finish);
+      wrapperElement.insertBefore(finish, wrapperElement.querySelector('div'));
 
       var newDiv = document.createElement("div");
       newDiv.setAttribute('class', 'sh-answers');
       $(wrapperElement).children().wrapAll(newDiv);
-      if (comment !== null) {
-        wrapperElement.insertAdjacentElement('beforeend', comment);
-      }
-
       surveyEntity.Answers.map(function (item) {
-
-        if (item.CommentElement) {
-          item.CommentElement = comment.querySelector("textarea");
-        }
-
+        item.AnswerElement.addEventListener('change', onSelectHorizontalComment);
       });
 
       return wrapperElement
