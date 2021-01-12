@@ -752,34 +752,53 @@ window.addEventListener('DOMContentLoaded', function () {
         if (item.tagName === 'DIV') {
           wrapperElement.insertAdjacentElement('beforeend', item);
           item.style.display = "none";
-
         }
       });
 
       var inputs = wrapperElement.querySelectorAll("input");
       var labels = wrapperElement.querySelectorAll("label");
+      var hints = wrapperElement.querySelectorAll("p");
 
-      wrapperElement.childNodes.forEach(function(item){
-        if (item.tagName === 'INPUT' && item.id !== inputs[0].id && item.id !== inputs[inputs.length - 1].id) {
-          var label = wrapperElement.querySelector("label[for='" + item.id + "']");
-          item.setAttribute('title', label.textContent);
+      var tbl  = document.createElement('table');
+      var tdLength = inputs.length + 2;
+
+      //rows
+      for (var i = 0; i < 2; i++) {
+        var tr = tbl.insertRow();
+        //cells
+        for (var j = 0; j < tdLength; j++) {
+          var td = tr.insertCell();
+          td.style.textAlign = 'center';
+          if (i === 0) {
+            if (j === 0 || j === 1 || j > tdLength - 3) {
+              continue;
+            }
+            td.setAttribute('class', 'answer-hint');
+            td.innerHTML = labels[j - 1].textContent;
+          }
+
+          if (i === 1) {
+            if (j === 0) {
+              td.style.textAlign = 'right';
+              td.innerHTML = labels[0].textContent;
+            } else if (j === tdLength - 1) {
+              td.style.textAlign = 'left';
+              td.innerHTML = labels[labels.length - 1].textContent;
+            } else {
+              td.appendChild(inputs[j - 1]);
+            }
+          }
         }
+      }
+
+      wrapperElement.insertAdjacentElement('afterbegin', tbl);
+      labels.forEach(function(item){
+        wrapperElement.removeChild(item);
       });
 
-      wrapperElement.childNodes.forEach(function(item){
-        if (item.tagName === 'LABEL') {
-          wrapperElement.removeChild(item);
-        }
+      hints.forEach(function(item){
+        wrapperElement.removeChild(item);
       });
-
-
-      var start = document.createElement("span");
-      start.innerHTML = labels[0].textContent;
-      var finish = document.createElement("span");
-      finish.innerHTML = labels[labels.length - 1].textContent;
-
-      wrapperElement.insertAdjacentElement('afterbegin', start);
-      wrapperElement.insertBefore(finish, wrapperElement.querySelector('div'));
 
       var newDiv = document.createElement("div");
       newDiv.setAttribute('class', 'sh-answers');
@@ -789,9 +808,7 @@ window.addEventListener('DOMContentLoaded', function () {
       });
 
       return wrapperElement
-
     }
-
 
     return wrapperElement;
   }
