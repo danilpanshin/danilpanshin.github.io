@@ -760,7 +760,7 @@ window.addEventListener('DOMContentLoaded', function () {
       var hints = wrapperElement.querySelectorAll("p");
 
       var tbl  = document.createElement('table');
-      var tdLength = inputs.length + 2;
+      var tdLength = inputs.length;
 
       //rows
       for (var i = 0; i < 2; i++) {
@@ -770,23 +770,11 @@ window.addEventListener('DOMContentLoaded', function () {
           var td = tr.insertCell();
           td.style.textAlign = 'center';
           if (i === 0) {
-            if (j === 0 || j === 1 || j > tdLength - 3) {
-              continue;
-            }
             td.setAttribute('class', 'answer-hint');
-            td.innerHTML = labels[j - 1].textContent;
+            td.innerHTML = labels[j].textContent;
           }
-
           if (i === 1) {
-            if (j === 0) {
-              td.style.textAlign = 'right';
-              td.innerHTML = labels[0].textContent;
-            } else if (j === tdLength - 1) {
-              td.style.textAlign = 'left';
-              td.innerHTML = labels[labels.length - 1].textContent;
-            } else {
-              td.appendChild(inputs[j - 1]);
-            }
+              td.appendChild(inputs[j]);
           }
         }
       }
