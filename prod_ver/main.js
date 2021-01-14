@@ -288,8 +288,7 @@ window.addEventListener('DOMContentLoaded', function () {
     multiSelect: 'M',
     checkbox: 'H',
     caption: 'C',
-    selectTable: 'ST',
-    selectHorizontal: 'SH'
+    selectTable: 'ST'
   };
 
   var codeToName = window.utils.changeKeyAndValueInObject(nameToCode);
@@ -423,16 +422,6 @@ window.addEventListener('DOMContentLoaded', function () {
       wrapper: {
         CLASS: 'checkbox-answers-wrapper',
       },
-    },
-    selectHorizontal: {
-      CLASS: 'input-select',
-      CODE: 'SH',
-      TAG: 'input',
-      TYPE: 'radio',
-      create: 'createSomeAnswersElements',
-      wrapper: {
-        CLASS: 'select-horizontal-answers-wrapper',
-      }
     },
   };
 
@@ -597,7 +586,6 @@ window.addEventListener('DOMContentLoaded', function () {
     entity.IsCheckboxType = entity.SurveyType === window.config.nameToCode.checkbox;
     entity.IsCaptionType = entity.SurveyType === window.config.nameToCode.caption;
     entity.IsSelectTableType = entity.SurveyType === window.config.nameToCode.selectTable;
-    entity.IsSelectHorizontalType = entity.SurveyType === window.config.nameToCode.selectHorizontal;
   }
 
   function createSurveyGroupElement(code) {
@@ -673,6 +661,7 @@ window.addEventListener('DOMContentLoaded', function () {
     var element = document.createElement(window.config.question.TAG);
     element.classList.add(window.config.question.CLASS);
     element.insertAdjacentHTML('afterbegin', text);
+
     return element;
   }
 
@@ -693,15 +682,6 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 
     return wrapperElement;
-  }
-
-  function onSelectHorizontalComment(evt) {
-    document.querySelectorAll('.visible .sh-answers .answer-comment-wrapper').forEach(function (item) {
-      item.style.display = 'none';
-    });
-    if (document.querySelector('#' + this.id + '-comment') !== null) {
-      document.querySelector('#' + this.id + '-comment').parentNode.style.display = "block";
-    }
   }
 
   function createSomeAnswersElements(surveyEntity, config) {
@@ -741,63 +721,6 @@ window.addEventListener('DOMContentLoaded', function () {
     if (groupWrapperElement.hasChildNodes()) {
       return groupWrapperElement;
     }
-
-    if (surveyEntity.IsSelectHorizontalType) {
-
-      if (window.NodeList && !NodeList.prototype.forEach) {
-        NodeList.prototype.forEach = Array.prototype.forEach;
-      }
-
-      wrapperElement.childNodes.forEach(function(item){
-        if (item.tagName === 'DIV') {
-          wrapperElement.insertAdjacentElement('beforeend', item);
-          item.style.display = "none";
-        }
-      });
-
-      var inputs = wrapperElement.querySelectorAll("input");
-      var labels = wrapperElement.querySelectorAll("label");
-      var hints = wrapperElement.querySelectorAll("p");
-
-      var tbl  = document.createElement('table');
-      var tdLength = inputs.length;
-
-      //rows
-      for (var i = 0; i < 2; i++) {
-        var tr = tbl.insertRow();
-        //cells
-        for (var j = 0; j < tdLength; j++) {
-          var td = tr.insertCell();
-          td.style.textAlign = 'center';
-          if (i === 0) {
-            td.setAttribute('class', 'answer-hint');
-            td.innerHTML = labels[j].textContent;
-          }
-          if (i === 1) {
-              td.appendChild(inputs[j]);
-          }
-        }
-      }
-
-      wrapperElement.insertAdjacentElement('afterbegin', tbl);
-      labels.forEach(function(item){
-        wrapperElement.removeChild(item);
-      });
-
-      hints.forEach(function(item){
-        wrapperElement.removeChild(item);
-      });
-
-      var newDiv = document.createElement("div");
-      newDiv.setAttribute('class', 'sh-answers');
-      $(wrapperElement).children().wrapAll(newDiv);
-      surveyEntity.Answers.map(function (item) {
-        item.AnswerElement.addEventListener('change', onSelectHorizontalComment);
-      });
-
-      return wrapperElement
-    }
-
     return wrapperElement;
   }
 
@@ -1818,5 +1741,3 @@ window.addEventListener('DOMContentLoaded', function () {
     outputElement: null
   }
 })();
-
-
