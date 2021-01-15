@@ -403,11 +403,13 @@
   margin-top: 1.75em;
 }
 
- .select-horizontal-answers-wrapper input[type="radio"] {
-     display: inline-block;
-     appearance: radio;
-     margin: 3px 3px 0px 5px;
- }
+.select-horizontal-answers-wrapper input[type="radio"] {
+  display: inline-block;
+  appearance: radio;
+  -webkit-appearance: radio;
+  -moz-appearance: radio;
+  margin: 3px 3px 0px 5px;
+}
 
  .select-horizontal-answers-wrapper td {
      padding-right: 1px;
@@ -433,3 +435,4 @@
  #WhatWereYouLookingFor {
    display: none !important;
  }
+
