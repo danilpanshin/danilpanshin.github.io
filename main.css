@@ -396,43 +396,39 @@
   margin-top: 1.75em;
 }
 
-.static-page .question {
-  font-size: 1em;
-  font-family: "SamsungSharpSans", "Arial", sans-serif;
-  font-weight: bold;
-  margin-top: 1.75em;
-}
-
 .select-horizontal-answers-wrapper input[type="radio"] {
-  display: inline-block;
-  appearance: radio;
-  -webkit-appearance: radio;
-  -moz-appearance: radio;
-  margin: 3px 3px 0px 5px;
+    display: inline-block;
+    appearance: radio;
+    -webkit-appearance: radio;
+    -moz-appearance: radio;
+    margin: 3px 3px 0px 5px;
 }
 
- .select-horizontal-answers-wrapper td {
-     padding-right: 1px;
-     padding-bottom: 1px;
-     padding-left: 1px;
-     display: table-cell;
-     vertical-align: inherit;
- }
+.select-horizontal-answers-wrapper td {
+    padding-right: 1px;
+    padding-bottom: 1px;
+    padding-left: 1px;
+    display: table-cell;
+    vertical-align: inherit;
+}
 
- .select-horizontal-answers-wrapper table {
-     border-collapse: separate;
-     text-indent: initial;
-     white-space: normal;
-     line-height: normal;
-     font-weight: normal;
-     font-size: medium;
-     font-style: normal;
-     text-align: start;
-     border-spacing: 2px;
-     font-variant: normal;
- }
+.select-horizontal-answers-wrapper table {
+    border-collapse: separate;
+    text-indent: initial;
+    white-space: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-style: normal;
+    text-align: start;
+    border-spacing: 2px;
+    font-variant: normal;
+}
+
+.checkbox-hint-wrapper {
+    margin-left: 1.5em;
+}
 
  #WhatWereYouLookingFor {
    display: none !important;
  }
-

@@ -261,6 +261,22 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  function linkTracking(link) {
+    var linkTrackingConfig = {
+      url: 'https://ssl.samsung.ru/localCMS/HappyMail/LinkTracking_Insert',
+      type: 'POST',
+      data: {
+        guid: window.xhr.guid,
+        uid: window.xhr.uid,
+        url: link.href
+      },
+      onSuccess: '',
+      onError: ''
+    }
+
+    window.xhr.create(linkTrackingConfig);
+  }
+
   window.utils = {
     class: className,
     renameParametrs: renameParametrs,
@@ -270,7 +286,8 @@ window.addEventListener('DOMContentLoaded', function () {
     slowScrollToElement: slowScrollToElement,
     changeKeyAndValueInObject: changeKeyAndValueInObject,
     getTrueKeyInObject: getTrueKeyInObject,
-    parseUrlQuery: parseUrlQuery
+    parseUrlQuery: parseUrlQuery,
+    linkTracking: linkTracking
   }
 })();
 
@@ -867,11 +884,16 @@ window.addEventListener('DOMContentLoaded', function () {
       }
       entity.AnswerNo = entity.AnswerElement.id;
       entity.NextSurveyNo = surveyEntity.NextSurveyNo;
-
       surveyEntity.Answers.push(entity);
       elements.push(entity.AnswerElement);
 
       if (surveyEntity.IsCheckboxType) {
+        if (surveyEntity.QuestionHint) {
+          var checkboxHintWrapper = document.createElement('div');
+          checkboxHintWrapper.classList.add('checkbox-hint-wrapper');
+          checkboxHintWrapper.insertAdjacentHTML('afterbegin', surveyEntity.QuestionHint);
+          elements.unshift(checkboxHintWrapper);
+        }
         labelElement = createAnswerLabelElement(entity.AnswerNo, surveyEntity.QuestionText);
         elements.push(labelElement);
       }
@@ -1818,5 +1840,3 @@ window.addEventListener('DOMContentLoaded', function () {
     outputElement: null
   }
 })();
-
-
